@@ -8,7 +8,7 @@ pipeline {
         }
         stage('ansible') {
             steps {
-                ansiblePlaybook becomeUser: null, credentialsId: 'test', playbook: 'ansible-wordpress.yml'
+                ansiblePlaybook becomeUser: null, credentialsId: 'test', inventory: 'inventory', playbook: 'ansible-wordpress.yml'
             }
         }
     }
