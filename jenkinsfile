@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('git') {
+            steps {
+                git branch: 'main', changelog: false, credentialsId: 'test', poll: false, url: 'git@github.com:Asfanq/deploy-test.git'
+            }
+        }
+        stage('ansible') {
+            steps {
+                ansiblePlaybook becomeUser: null, playbook: 'ansible-wordpress.yml', sudoUser: null, vaultTmpPath: ''
+            }
+        }
+    }
+}
