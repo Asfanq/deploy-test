@@ -13,7 +13,7 @@
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
         src: docker-compose.yml
-        dest: ~/test/
+        dest: ~/test/docker-compose.yml
         owner: root
         group: root
         mode: '0644'
